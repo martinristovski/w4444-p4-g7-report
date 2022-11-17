@@ -22,10 +22,25 @@
 
 \section{Introduction}
 
+In Project 4: Amoeba, the goal is to design and implement a movement strategy for an amoeba-like agent within a grid whose non-amoeba cells are either empty or contain bacteria.
+
 \subsection{Problem Specification}
+We control an amoeba-like creature that occupies a connected set of cells in a 100x100 grid. The grid wraps around horizontally and vertically. Each cell not occupied by the amoeba is either empty or it contains a bacterium, with the bacteria density given by the parameter $d$.
+
+Bacteria are sensitive to their immediate surroundings, and if possible they will try to move away from neighboring bacteria and neighboring amoeba cells. The bacteria move at a speed of one cell per turn. The bacteria will not move if they are surrounded by at least 3 other bacteria or amoeba cells. The bacteria will not move if they are surrounded by empty cells, but they will move if they are surrounded by one or two non-empty cell.
+
+The amoeba also moves at a speed of one cell per turn. Its movement is governed by a parameter called the metabolism, $m$, where $0 < m \leq 1$. On any turn, the amoeba may retract up to $m$ of its cells, and it may extend up to $m$ of its cells. The amoeba may not retract or extend more than one cell in any direction. The amoeba may not retract or extend a cell if it would cause the amoeba to become disconnected.
+
+
 
 
 \section{Initial Implementation}
+
+The first thing that came to mind is that it would be benefitial to have a lot of information about the state of the grid and to have a lot of flexibility in terms of what parts of the amoeba we can move and by how much. This led us to space-filling curves, and from there we decided to implement a modified pseudo-Hilbert curve as the goal shape for our amoeba. This curve is defined as follows:
+
+\begin{itemize}
+    \item TODO: define curve
+\end{itemize}
 
 
 \section{Improvements}
